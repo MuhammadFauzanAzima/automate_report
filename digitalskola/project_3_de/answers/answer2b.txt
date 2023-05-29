@@ -1,0 +1,31 @@
+Step 1 
+
+Get docker ready on your local by following these steps:
+1. First, make sure you already has docker up and running, check here for more details - https://docs.docker.com/get-docker/
+2. Open your terminal and run this command - docker pull postgres
+3. Create a container
+    docker run \
+    --name postgres \
+    -p 5432:5432 \
+    -v /var/run/postgresql:/var/run/postgresql \
+    -e POSTGRES_PASSWORD=secret123 \
+    -d postgres:latest
+
+4. Enter the server 
+    psql -h localhost -p 5432 -U postgres
+    
+    Enter password if prompted: secret123
+
+Step 2
+1. Inside the postgres server run below command to create default database
+    Database already created in answer2a
+
+    then connect the the newly created database
+
+    /c shipping_orders
+
+
+Step 3
+1. Run answer2b.py script to get the execute the pipeline. 
+Make sure you specify the relative path first inside the py file before executing, 
+otherwise it would absolutely failed (relative path handler not being handle yet in the code)
